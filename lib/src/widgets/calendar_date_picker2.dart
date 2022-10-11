@@ -409,11 +409,8 @@ class _DatePickerModeToggleButtonState
                         ),
                         RotationTransition(
                           turns: _controller,
-                          child: Icon(
-                            Icons.arrow_drop_down,
-                            color: widget.config.controlsTextStyle?.color ??
-                                controlColor,
-                          ),
+                          child: Icon(widget.config.dropdownArrow,
+                              color: widget.config.arrowColor),
                         ),
                       ],
                     ),
@@ -749,9 +746,6 @@ class _MonthPickerState extends State<_MonthPicker> {
 
   @override
   Widget build(BuildContext context) {
-    final Color controlColor =
-        Theme.of(context).colorScheme.onSurface.withOpacity(0.60);
-
     return Semantics(
       child: Column(
         children: <Widget>[
@@ -763,8 +757,8 @@ class _MonthPickerState extends State<_MonthPicker> {
                 const Spacer(),
                 IconButton(
                   icon: widget.config.lastMonthIcon ??
-                      const Icon(Icons.chevron_left),
-                  color: controlColor,
+                      Icon(widget.config.arrowLeft),
+                  color: widget.config.arrowColor,
                   tooltip: _isDisplayingFirstMonth
                       ? null
                       : _localizations.previousMonthTooltip,
@@ -773,8 +767,8 @@ class _MonthPickerState extends State<_MonthPicker> {
                 ),
                 IconButton(
                   icon: widget.config.nextMonthIcon ??
-                      const Icon(Icons.chevron_right),
-                  color: controlColor,
+                      Icon(widget.config.arrowRight),
+                  color: widget.config.arrowColor,
                   tooltip: _isDisplayingLastMonth
                       ? null
                       : _localizations.nextMonthTooltip,

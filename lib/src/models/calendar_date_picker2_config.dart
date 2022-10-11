@@ -23,11 +23,20 @@ class CalendarDatePicker2Config {
     this.yearTextStyle,
     this.dayBorderRadius,
     this.yearBorderRadius,
+    this.arrowColor = Colors.grey,
+    this.dropdownArrow = Icons.arrow_drop_down,
+    this.arrowLeft = Icons.chevron_left,
+    this.arrowRight = Icons.chevron_right,
   })  : calendarType = calendarType ?? CalendarDatePicker2Type.single,
         firstDate = firstDate ?? DateTime(1970),
         lastDate = lastDate ?? DateTime(DateTime.now().year + 50),
         currentDate = currentDate ?? DateUtils.dateOnly(DateTime.now()),
         calendarViewMode = calendarViewMode ?? DatePickerMode.day;
+
+  final Color arrowColor;
+  final IconData dropdownArrow;
+  final IconData arrowLeft;
+  final IconData arrowRight;
 
   /// The enabled date picker mode
   final CalendarDatePicker2Type calendarType;
